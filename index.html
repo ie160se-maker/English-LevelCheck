@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>英会話レベル診断 | CEFR 6段階</title>
+  <meta name="description" content="CEFRベースで英会話レベルを6段階診断。リスニング・会話運用・流暢さ・言い換え力・実務/試験実績をもとに累積加点方式で判定します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__badge">GitHub Pagesでそのまま公開できる静的アプリ</div>
+      <h1>英会話レベル診断</h1>
+      <p class="hero__lead">
+        CEFRを知らなくても分かる6段階表示で、あなたの英会話力を診断します。<br>
+        リスニング・会話運用・流暢さ・言い換え力を中心に、<strong>累積加点方式</strong>でスコアを集計します。
+      </p>
+      <div class="hero__meta">
+        <span>6段階判定</span>
+        <span>テスト未受験でも不利にならない設計</span>
+        <span>ブラウザだけで動作</span>
+      </div>
+    </header>
+
+    <main class="content-grid">
+      <section class="panel intro-panel">
+        <h2>診断の考え方</h2>
+        <div class="intro-grid">
+          <article>
+            <h3>1. 会話で使う力を中心に評価</h3>
+            <p>CEFRの Listening / Spoken Interaction / Spoken Production に沿って、具体的な「できること」で質問します。</p>
+          </article>
+          <article>
+            <h3>2. 累積加点方式</h3>
+            <p>各回答を点数化し、5つの領域に積み上げます。最後に合計100点で6段階へ割り振ります。</p>
+          </article>
+          <article>
+            <h3>3. テスト未受験でも不利なし</h3>
+            <p>試験スコアは任意入力です。外部試験がなくても、「実務・日常での英語使用実績」から同じ領域の点を取れます。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel form-panel">
+        <div class="panel__header">
+          <div>
+            <h2>質問に答える</h2>
+            <p>すべて選択式です。所要時間は約3〜5分です。</p>
+          </div>
+          <button id="resetBtn" class="ghost-button" type="button">リセット</button>
+        </div>
+
+        <form id="quizForm" novalidate>
+          <div id="questionContainer"></div>
+
+          <div class="actions">
+            <button id="diagnoseBtn" class="primary-button" type="submit">診断する</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="panel result-panel" id="resultPanel" aria-live="polite">
+        <div class="result-placeholder" id="resultPlaceholder">
+          <h2>診断結果</h2>
+          <p>回答後に、推定レベル・総合スコア・領域別の強み/弱み・次の学習アクションを表示します。</p>
+        </div>
+
+        <div id="resultContent" class="hidden">
+          <div class="result-top">
+            <div>
+              <div class="result-chip" id="levelCode">B1</div>
+              <h2 id="friendlyLevel">旅行・仕事の基本会話</h2>
+              <p id="levelSummary"></p>
+            </div>
+            <div class="score-ring" aria-label="総合スコア">
+              <div>
+                <strong id="totalScore">0</strong>
+                <span>/ 100</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-explanation">
+            <h3>判定ロジック</h3>
+            <p id="logicSummary"></p>
+          </div>
+
+          <div class="bars-section">
+            <h3>領域別スコア</h3>
+            <div id="barsContainer"></div>
+          </div>
+
+          <div class="insights-grid">
+            <article class="insight-card">
+              <h3>強み</h3>
+              <ul id="strengthList"></ul>
+            </article>
+            <article class="insight-card">
+              <h3>次に伸ばすとよい点</h3>
+              <ul id="improveList"></ul>
+            </article>
+          </div>
+
+          <div class="next-actions">
+            <h3>おすすめ学習アクション</h3>
+            <ol id="actionList"></ol>
+          </div>
+
+          <div class="result-note">
+            <p>
+              ※ この診断は自己申告ベースの簡易推定です。公式の試験結果や面接評価の代替ではありません。<br>
+              ※ 試験スコア欄は任意です。未受験の場合でも、実際の会話経験から同じ評価領域をカバーします。
+            </p>
+          </div>
+
+          <div class="actions result-actions">
+            <button id="copyBtn" class="secondary-button" type="button">結果をコピー</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
