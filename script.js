@@ -383,13 +383,12 @@ function renderQuestions() {
   sections.forEach((section) => {
     const sectionEl = document.createElement('section');
     sectionEl.className = 'section-card';
-    sectionEl.innerHTML = `
-      <div class="section-title">
-        <h3>${section.title}</h3>
-        <span class="section-weight">${section.weightLabel}</span>
-      </div>
-      <p class="section-help">${section.help}</p>
-    `;
+   sectionEl.innerHTML = `
+  <div class="section-title">
+    <h3>${section.title}</h3>
+  </div>
+`;
+
 
     section.questions.forEach((question) => {
       const qEl = document.createElement('div');
@@ -416,10 +415,9 @@ function renderQuestions() {
   evidenceSection.className = 'section-card';
   evidenceSection.innerHTML = `
     <div class="section-title">
-      <h3>領域5-B：英語試験の実績（任意）</h3>
-      <span class="section-weight">最大20点の参考加点候補</span>
-    </div>
-    <p class="section-help">IELTS / TOEIC / TOEFL / VERSANT / 英検などの実績があれば入力してください。<strong>未受験でも不利になりません。</strong> このブロックは、上の「実際の使用実績」と比較して高い方だけを採用します。</p>
+  <h3>領域5-B：英語試験の実績（任意）</h3>
+</div>
+
     <div class="evidence-box">
       <div class="select-grid">
         <div class="select-field">
